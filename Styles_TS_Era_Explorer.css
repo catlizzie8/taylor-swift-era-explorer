@@ -42,7 +42,7 @@ header h1, header h2, header h3 {
 }
 
 @media (max-width: 500px) {
-  header h1 {
+  h1 {
     font-size: 28px;}
   h2 {
     font-size: 20px;}
@@ -55,7 +55,9 @@ header h1, header h2, header h3 {
 .Eras {
   padding-top: 200px;
 }
-
+.Eras img {
+  height: 300px;
+}
 h2 a.wikipediaLink {
   color: black !important;
   text-decoration: none !important;
