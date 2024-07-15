@@ -55,9 +55,24 @@ header h1, header h2, header h3 {
 .Eras {
   padding-top: 200px;
 }
+
 .Eras img {
   height: 300px;
 }
+
+.FearlessTVimg {
+  width: 300px;
+  height: 300px;
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/8/86/Taylor_Swift_-_Fearless.png');
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+.FearlessTVimg:hover {
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5b/Fearless_%28Taylor%27s_Version%29_%282021_album_cover%29_by_Taylor_Swift.png');
+}
+
 h2 a.wikipediaLink {
   color: black !important;
   text-decoration: none !important;
