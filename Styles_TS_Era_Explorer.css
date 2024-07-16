@@ -1,6 +1,6 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
-}
+  color: black;
 
 header {
   background-color: rgb(38, 142, 64);
@@ -14,7 +14,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  color: white;
 }
 
 h1 {
@@ -87,7 +87,7 @@ header h1, header h2, header h3 {
   background-size: cover;
   background-position: center;
   transition: background-image 1s ease-in-out;
-  flex-shrink: 0; /* Prevent shrinking */
+  flex-shrink: 0;
 }
 
 .FearlessTVimg {
