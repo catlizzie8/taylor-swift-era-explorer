@@ -1,6 +1,7 @@
 html {
   font-family: Arial, Helvetica, sans-serif;
   color: black;
+}
 
 header {
   background-color: rgb(38, 142, 64);
@@ -81,7 +82,7 @@ header h1, header h2, header h3 {
   flex-direction: column;
 }
 
-.FearlessTVimg, .SpeakNowTVimg {
+.FearlessTVimg, .SpeakNowTVimg, .RedTVimg, ._1989TVimg{
   width: 300px;
   height: 300px;
   background-size: cover;
@@ -104,6 +105,22 @@ header h1, header h2, header h3 {
 
 .SpeakNowTVimg:hover {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5b/Taylor_Swift_-_Speak_Now_%28Taylor%27s_Version%29.png');
+}
+
+.RedTVimg {
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/e/e8/Taylor_Swift_-_Red.png');
+}
+
+.RedTVimg:hover {
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/4/47/Taylor_Swift_-_Red_%28Taylor%27s_Version%29.png');
+}
+
+._1989TVimg {
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/f/f6/Taylor_Swift_-_1989.png');
+}
+
+._1989TVimg:hover {
+  background-image: url('https://upload.wikimedia.org/wikipedia/en/d/d5/Taylor_Swift_-_1989_%28Taylor%27s_Version%29.png');
 }
 
 h2 a.wikipediaLink {
