@@ -43,6 +43,27 @@ body {
   padding-top: 185px;
 }
 
+.fyi {
+  padding-bottom: 5px;
+  padding-left: 15px;
+  border: 3px solid black;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  padding-right: 10px;
+}
+
+.fyi h2 {
+  margin-bottom: 5px;
+}
+
+.fyi p {
+  margin-top: 0;
+}
+
+.fyi a {
+  color: black !important;
+}
+
 .Info {
   display: flex;
   align-items: flex-start;
@@ -110,7 +131,7 @@ h2 a.wikipediaLink {
 }
 
 .midnightsLink a.wikipediaLink {
-  color: rgb(39, 45, 80) !important;
+  color: rgb(0, 0, 128) !important;
 }
 
 .ttpdLink a.wikipediaLink {
@@ -180,7 +201,7 @@ h2 a.wikipediaLink {
 
 @media (max-width: 500px) {
   h1 {
-    font-size: 28px;
+    font-size: 32px;
   }
   h2 {
     font-size: 22px;
@@ -193,5 +214,9 @@ h2 a.wikipediaLink {
   }
   .Info {
     gap: 5px;
+  }
+  .album-cover {
+    height: 200px;
+    width: 200px;
   }
 }
