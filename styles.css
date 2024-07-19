@@ -200,7 +200,7 @@ h2 a.wikipediaLink {
   }
 }
 
-@media (max-width: 500px) and (min-width: 300px){
+@media (max-width: 500px) and (min-width: 375px){
   h1 {
     font-size: 32px;
   }
@@ -222,7 +222,7 @@ h2 a.wikipediaLink {
   }
 }
 
-@media (max-width: 300px){
+@media (max-width: 375px){
   h1 {
     font-size: 24px;
   }
