@@ -59,7 +59,6 @@ body {
 
 .Info {
   display: flex;
-  align-items: flex-start;
   gap: 20px;
 }
 
@@ -69,12 +68,13 @@ body {
 }
 
 .Info .text h2 {
-  margin-bottom: 5px;
+  margin-bottom: 3px;
+  margin-top: 2px;
 }
 
 .Info .text .includes {
   margin-top: 3px;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 0px;
 }
 
@@ -187,7 +187,7 @@ h2 a.wikipediaLink {
   background-image: url('https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa');
 }
 
-@media (max-width: 700px) and (min-width: 500px) {
+@media (max-width: 650px) and (min-width: 550px) {
   h1 {
     font-size: 36px;
   }
@@ -203,9 +203,13 @@ h2 a.wikipediaLink {
   .Info {
     gap: 10px;
   }
+  .album-cover {
+    height: 200px;
+    width: 200px;
+  }
 }
 
-@media (max-width: 500px) and (min-width: 375px){
+@media (max-width: 550px) and (min-width: 468px){
   h1 {
     font-size: 32px;
   }
@@ -218,6 +222,9 @@ h2 a.wikipediaLink {
   p, li {
     font-size: 12px;;
   }
+  header {
+    height: 160px;
+  }
   .Info {
     gap: 5px;
   }
@@ -227,7 +234,7 @@ h2 a.wikipediaLink {
   }
 }
 
-@media (max-width: 375px){
+@media (max-width: 468px){
   h1 {
     font-size: 24px;
   }
@@ -245,7 +252,7 @@ h2 a.wikipediaLink {
   }
 
   header {
-    height: 150px;
+    height: 130px;
   }
 
   body {
