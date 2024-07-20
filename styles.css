@@ -32,14 +32,6 @@ header h1, header h2, header h3 {
   line-height: 1.25;
 }
 
-.Info .text h2 {
-  margin-bottom: 5px;
-}
-
-.Info .text p {
-  margin-top: 0;
-}
-
 body {
   padding-top: 195px;
 }
@@ -71,6 +63,24 @@ body {
   gap: 20px;
 }
 
+.Info .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.Info .text h2 {
+  margin-bottom: 5px;
+}
+
+.Info .text .includes {
+  margin-top: 3px;
+  font-weight: bold;
+  margin-bottom: 0px;
+}
+
+.Info .text p {
+  margin-top: 3px !important;
+}
 
 .album-cover {
   flex-shrink: 0;
@@ -78,11 +88,6 @@ body {
   margin-bottom: 10px;
   width: 250px;
   height: 250px;
-}
-
-.Info .text {
-  display: flex;
-  flex-direction: column;
 }
 
 .FearlessTVimg, .SpeakNowTVimg, .RedTVimg, ._1989TVimg, .TTPDimg{
