@@ -18,18 +18,17 @@ header {
   color: white;
   padding: 5px;
 }
+header h1, header h2, header h3 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.25;
+}
 
 h1 {
   font-size: 48px;
 }
 h2 {
   font-size: 30px;
-}
-
-header h1, header h2, header h3 {
-  margin: 0;
-  padding: 0;
-  line-height: 1.25;
 }
 
 body {
@@ -44,15 +43,12 @@ body {
   margin-bottom: 15px;
   padding-right: 10px;
 }
-
 .fyi h2 {
   margin-bottom: 5px;
 }
-
 .fyi p {
   margin-top: 0;
 }
-
 .fyi a {
   color: black !important;
 }
@@ -61,45 +57,28 @@ body {
   display: flex;
   gap: 20px;
 }
-
 .Info .text {
   display: flex;
   flex-direction: column;
 }
-
 .Info .text h2 {
   margin-bottom: 3px;
   margin-top: 2px;
 }
-
 .Info .text .includes {
   margin-top: 3px;
   font-weight: 600;
   margin-bottom: 0px;
 }
-
 .Info .text p {
   margin-top: 3px !important;
 }
 
-.album-cover {
-  flex-shrink: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  width: 200px;
-  height: 200px;
-}
-
-.FearlessTVimg, .SpeakNowTVimg, .RedTVimg, ._1989TVimg, .TTPDimg{
-  background-size: cover;
-  background-position: center;
-  transition: background-image 1s ease-in-out;
-}
-
+/*Table stuff*/
 table {
   width: 680px;
   border-collapse: collapse;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 td {
   border: 1px solid black;
@@ -148,100 +127,103 @@ td {
 .TTPD .songs td{
   background-color: rgba(250, 250, 250,0.75);
 }
+
+:root {
+  --green: rgb(38, 142, 64);
+  --gold: rgb(221, 196, 119);
+  --purple: rgb(82, 49, 107);
+  --red: rgb(146, 12, 12);
+  --light-blue: rgb(189, 231, 249);
+  /* No need for rep black */
+  --pink: rgb(253, 192, 204);
+  --gray: rgb(204, 204, 204);
+  --brown: rgb(128, 66, 36);
+  --midnight-blue: rgb(39, 45, 80);
+  /* No need for TTPD white */
+}
+
+/* #Cells = color of era */
 .Debut .songs .number{
-  background-color: rgb(38,142,64);
+  background-color: var(--green);
 }
 .Fearless .songs .number{
-  background-color: rgb(221,196,119);
+  background-color: var(--gold);
 }
 .SpeakNow .songs .number{
-  background-color: rgb(82,49,107);
+  background-color: var(--purple);
 }
 .Red .songs .number{
-  background-color: rgb(146, 12, 12);
+  background-color: var(--red);
 }
 ._1989 .songs .number{
-  background-color: rgb(189, 231, 249);
+  background-color: var(--light-blue);
 }
 .reputation .songs .number{
-  background-color: rgb(0, 0, 0);
+  background-color: black;
   color: white;
 }
 .Lover .songs .number{
-  background-color: rgb(253,192,204);
+  background-color: var(--pink);
 }
 .folklore .songs .number{
-  background-color: rgb(204, 204, 204);
+  background-color: var(--grey);
 }
 .evermore .songs .number{
-  background-color: rgb(128, 66, 36);
+  background-color: var(--brown);
 }
 .Midnights .songs .number{
-  background-color: rgb(39, 45, 80);
-  color: rgb(204, 204, 204);
+  background-color: var(--midnight-blue);
+  color: var(--grey);
 }
 .TTPD .songs .number{
-  background-color: rgb(250, 250, 250);
+  background-color: white;
 }
-/*tr:nth-child(even) {
-  background-color: #f9f9f9; /* has every other row be grey/*
-}*/
 
+/* Title = color of era*/
 h2 a.wikipediaLink {
-  text-decoration: none !important;
+  text-decoration: none;
 }
-
 .debutLink a.wikipediaLink {
-  color: rgb(38, 142, 64) !important;
+  color: var(--green);
 }
-
 .fearlessLink a.wikipediaLink {
-  color: rgb(221, 196, 119) !important;
+  color: var(--gold);
 }
-
 .speakNowLink a.wikipediaLink {
-  color: rgb(82,49,107) !important;
+  color: var(--purple);
 }
-
 .redLink a.wikipediaLink {
-  color: rgb(146, 12, 12) !important;
+  color: var(--red);
 }
-
 ._1989Link a.wikipediaLink {
-  color: rgb(189, 231, 249) !important;
+  color: var(--light-blue);
 }
-
 .reputationLink a.wikipediaLink {
-  color: rgb(0, 0, 0) !important;
+  color: black;
 }
-
 .loverLink a.wikipediaLink {
-  color: rgb(253, 192, 204) !important;
+  color: var(--pink);
 }
-
 .folkloreLink a.wikipediaLink {
-  color: rgb(204, 204, 204) !important;
+  color: var(--grey);
 }
-
 .evermoreLink a.wikipediaLink {
-  color: rgb(128, 66, 36) !important;
+  color: var(--brown);
 }
-
 .midnightsLink a.wikipediaLink {
-  color: rgb(0, 0, 128) !important;
+  color: var(--midnight-blue);
 }
-
 .ttpdLink a.wikipediaLink {
-  color: rgb(250, 250, 250) !important;
+  color: white;
   background-color: rgba(0, 0, 0, 0.7);
   padding-left: 5px;
   padding-right: 5px;
 }
 
+/* Does the hovering thing*/
 .FearlessTVimg {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/8/86/Taylor_Swift_-_Fearless.png');
 }
-
 .FearlessTVimg:hover {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5b/Fearless_%28Taylor%27s_Version%29_%282021_album_cover%29_by_Taylor_Swift.png');
 }
@@ -249,7 +231,6 @@ h2 a.wikipediaLink {
 .SpeakNowTVimg {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/8/8f/Taylor_Swift_-_Speak_Now_cover.png');
 }
-
 .SpeakNowTVimg:hover {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/5/5b/Taylor_Swift_-_Speak_Now_%28Taylor%27s_Version%29.png');
 }
@@ -257,7 +238,6 @@ h2 a.wikipediaLink {
 .RedTVimg {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/e/e8/Taylor_Swift_-_Red.png');
 }
-
 .RedTVimg:hover {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/4/47/Taylor_Swift_-_Red_%28Taylor%27s_Version%29.png');
 }
@@ -265,7 +245,6 @@ h2 a.wikipediaLink {
 ._1989TVimg {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/f/f6/Taylor_Swift_-_1989.png');
 }
-
 ._1989TVimg:hover {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/d/d5/Taylor_Swift_-_1989_%28Taylor%27s_Version%29.png');
 }
@@ -273,101 +252,82 @@ h2 a.wikipediaLink {
 .TTPDimg {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/6/6e/Taylor_Swift_%E2%80%93_The_Tortured_Poets_Department_%28album_cover%29.png');
 }
-
 .TTPDimg:hover {
   background-image: url('https://i.scdn.co/image/ab67616d0000b2738ecc33f195df6aa257c39eaa');
 }
 
+.FearlessTVimg, .SpeakNowTVimg, .RedTVimg, ._1989TVimg, .TTPDimg{
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out;
+}
+
+.album-cover {
+  flex-shrink: 0;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 200px;
+}
+
+/* Changes styles when the browser width changes */
 @media (max-width: 690px) and (min-width: 550px) {
   h1 {
-    font-size: 36px;
-  }
+    font-size: 36px;}
   h2 {
-    font-size: 28px;
-  }
+    font-size: 28px;}
   h3 {
-    font-size: 16px;
-  }
+    font-size: 16px;}
   p, li, td {
-    font-size: 12px;;
-  }
+    font-size: 12px;}
   .Info {
-    gap: 10px;
-  }
+    gap: 10px;}
   .album-cover {
     height: 200px;
-    width: 200px;
-  }
+    width: 200px;}
   table {
-    width: 100%;
-  }
+    width: 100%;}
 }
-
 @media (max-width: 550px) and (min-width: 468px){
   h1 {
-    font-size: 32px;
-  }
+    font-size: 32px;}
   h2 {
-    font-size: 22px;
-  }
+    font-size: 22px;}
   h3 {
-    font-size: 16px;
-  }
+    font-size: 16px;}
   p, li, td {
-    font-size: 12px;;
-  }
+    font-size: 12px;}
   header {
-    height: 160px;
-  }
+    height: 160px;}
   .Info {
-    gap: 5px;
-  }
+    gap: 5px;}
   .album-cover {
     height: 200px;
-    width: 200px;
-  }
+    width: 200px;}
   table {
-    width: 100%;
-  }
+    width: 100%;}
 }
-
 @media (max-width: 468px){
   h1 {
-    font-size: 24px;
-  }
-  
+    font-size: 24px;}
   h2 {
-    font-size: 16px;
-  }
-  
+    font-size: 16px;}
   h3 {
-    font-size: 13px;
-  }
-
+    font-size: 13px;}
   p, li, td {
-    font-size: 12px;
-  }
-
+    font-size: 12px;}
   header {
-    height: 130px;
-  }
-
+    height: 130px;}
   body {
-    padding-top: 165px;
-  }
-
+    padding-top: 165px;}
   .Info {
     flex-direction: column;
-    align-items: center;
-  }
-
+    align-items: center;}
   .album-cover {
     margin-right: 0;
     margin-bottom: 10px;
     height: 200px;
-    width: 200px
-  }
+    width: 200px}
   table {
-    width: 100%;
-  }
+    width: 100%;}
 }
