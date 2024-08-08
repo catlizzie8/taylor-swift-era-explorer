@@ -4,7 +4,7 @@ html {
 }
 
 header {
-  background-color: rgb(38, 142, 64);
+  /*background-color: rgb(38, 142, 64);*/
   text-align: center;
   position: fixed;
   top: 0;
@@ -94,88 +94,91 @@ td {
 .songs td:nth-child(3) {
   width: 30px;
 }
-.Debut .songs td{
-  background-color: rgba(38,142,64,0.75);
+.songs td {
+  background-color: var(--color);
 }
-.Fearless .songs td{
-  background-color: rgba(221,196,119,0.75);
+.debut {
+  --color: rgba(38, 142, 64, 0.75);
 }
-.SpeakNow .songs td{
-  background-color: rgba(82,49,107,0.75);
+.fearless {
+  --color: rgba(221, 196, 119, 0.75);
 }
-.Red .songs td{
-  background-color: rgba(146, 12, 12,0.75);
+.speaknow {
+  --color: rgba(82, 49, 107, 0.75);
 }
-._1989 .songs td{
-  background-color: rgba(189, 231, 249,0.5);
+.red {
+  --color: rgba(146, 12, 12, 0.75);
 }
-.reputation .songs td{
-  background-color: rgba(0, 0, 0,0.5);
+._1989{
+  --color: rgba(189, 231, 249,0.5);
 }
-.Lover .songs td{
-  background-color: rgba(253,192,204,0.6);
+.rep {
+  --color: rgba(0, 0, 0,0.5);
 }
-.folklore .songs td{
-  background-color: rgba(204, 204, 204,0.5);
+.lover {
+  --color: rgba(253,192,204,0.6);
 }
-.evermore .songs td{
-  background-color: rgba(128, 66, 36,0.75);
+.folklore {
+  --color: rgba(204, 204, 204,0.5);
 }
-.Midnights .songs td{
-  background-color: rgba(39, 45, 80,0.75);
+.evermore {
+  --color: rgba(128, 66, 36,0.75);
 }
-.TTPD .songs td{
-  background-color: rgba(250, 250, 250,0.75);
+.midnights {
+  --color: rgba(39, 45, 80,0.75);
+}
+.ttpd {
+  --color: rgba(250, 250, 250,0.75);
 }
 
 :root {
-  --green: rgb(38, 142, 64);
-  --gold: rgb(221, 196, 119);
-  --purple: rgb(82, 49, 107);
+  --debut: rgb(38, 142, 64);
+  --fearless: rgb(221, 196, 119);
+  --speaknow: rgb(82, 49, 107);
   --red: rgb(146, 12, 12);
-  --light-blue: rgb(189, 231, 249);
-  /* No need for rep black */
-  --pink: rgb(253, 192, 204);
-  --gray: rgb(204, 204, 204);
-  --brown: rgb(128, 66, 36);
-  --midnight-blue: rgb(39, 45, 80);
-  /* No need for TTPD white */
+  --_1989: rgb(189, 231, 249);
+  --rep: black;
+  --lover: rgb(253, 192, 204);
+  --folklore: rgb(204, 204, 204);
+  --evermore: rgb(128, 66, 36);
+  --midnights: rgb(39, 45, 80);
+  --ttpd: white;
 }
 
 /* #Cells = color of era */
-.Debut .songs .number{
-  background-color: var(--green);
+.debut .songs .number{
+  background-color: var(--debut);
 }
-.Fearless .songs .number{
-  background-color: var(--gold);
+.fearless .songs .number{
+  background-color: var(--fearless);
 }
-.SpeakNow .songs .number{
-  background-color: var(--purple);
+.speaknow .songs .number{
+  background-color: var(--speaknow);
 }
-.Red .songs .number{
+.red .songs .number{
   background-color: var(--red);
 }
 ._1989 .songs .number{
-  background-color: var(--light-blue);
+  background-color: var(--_1989);
 }
-.reputation .songs .number{
+.rep .songs .number{
   background-color: black;
   color: white;
 }
-.Lover .songs .number{
-  background-color: var(--pink);
+.lover .songs .number{
+  background-color: var(--lover);
 }
 .folklore .songs .number{
-  background-color: var(--grey);
+  background-color: var(--folklore);
 }
 .evermore .songs .number{
-  background-color: var(--brown);
+  background-color: var(--evermore);
 }
-.Midnights .songs .number{
-  background-color: var(--midnight-blue);
-  color: var(--grey);
+.midnights .songs .number{
+  background-color: var(--midnights);
+  color: var(--folklore);
 }
-.TTPD .songs .number{
+.ttpd .songs .number{
   background-color: white;
 }
 
@@ -184,34 +187,34 @@ h2 a.wikipediaLink {
   text-decoration: none;
 }
 .debutLink a.wikipediaLink {
-  color: var(--green);
+  color: var(--debut);
 }
 .fearlessLink a.wikipediaLink {
-  color: var(--gold);
+  color: var(--fearless);
 }
 .speakNowLink a.wikipediaLink {
-  color: var(--purple);
+  color: var(--speaknow);
 }
 .redLink a.wikipediaLink {
   color: var(--red);
 }
 ._1989Link a.wikipediaLink {
-  color: var(--light-blue);
+  color: var(--_1989);
 }
 .reputationLink a.wikipediaLink {
   color: black;
 }
 .loverLink a.wikipediaLink {
-  color: var(--pink);
+  color: var(--lover);
 }
 .folkloreLink a.wikipediaLink {
-  color: var(--grey);
+  color: var(--folklore);
 }
 .evermoreLink a.wikipediaLink {
-  color: var(--brown);
+  color: var(--evermore);
 }
 .midnightsLink a.wikipediaLink {
-  color: var(--midnight-blue);
+  color: var(--midnights);
 }
 .ttpdLink a.wikipediaLink {
   color: white;
@@ -271,7 +274,7 @@ h2 a.wikipediaLink {
 }
 
 /* Changes styles when the browser width changes */
-@media (max-width: 690px) and (min-width: 550px) {
+@media (max-width: 690px) {
   h1 {
     font-size: 36px;}
   h2 {
@@ -288,34 +291,23 @@ h2 a.wikipediaLink {
   table {
     width: 100%;}
 }
-@media (max-width: 550px) and (min-width: 468px){
+@media (max-width: 550px) {
   h1 {
     font-size: 32px;}
   h2 {
     font-size: 22px;}
-  h3 {
-    font-size: 16px;}
-  p, li, td {
-    font-size: 12px;}
   header {
     height: 160px;}
   .Info {
     gap: 5px;}
-  .album-cover {
-    height: 200px;
-    width: 200px;}
-  table {
-    width: 100%;}
 }
-@media (max-width: 468px){
+@media (max-width: 468px) {
   h1 {
     font-size: 24px;}
   h2 {
     font-size: 16px;}
   h3 {
     font-size: 13px;}
-  p, li, td {
-    font-size: 12px;}
   header {
     height: 130px;}
   body {
@@ -325,9 +317,5 @@ h2 a.wikipediaLink {
     align-items: center;}
   .album-cover {
     margin-right: 0;
-    margin-bottom: 10px;
-    height: 200px;
-    width: 200px}
-  table {
-    width: 100%;}
-}
+    margin-bottom: 10px;}
+  }
