@@ -4,7 +4,7 @@ html {
 }
 
 header {
-  /*background-color: rgb(38, 142, 64);*/
+  background-color: initial;
   text-align: center;
   position: fixed;
   top: 0;
@@ -143,6 +143,7 @@ td {
   --evermore: rgb(128, 66, 36);
   --midnights: rgb(39, 45, 80);
   --ttpd: white;
+  --width: 80%;
 }
 
 /* #Cells = color of era */
@@ -223,7 +224,7 @@ h2 a.wikipediaLink {
   padding-right: 5px;
 }
 
-/* Does the hovering thing*/
+/* The hovering thing*/
 .FearlessTVimg {
   background-image: url('https://upload.wikimedia.org/wikipedia/en/8/86/Taylor_Swift_-_Fearless.png');
 }
@@ -273,6 +274,16 @@ h2 a.wikipediaLink {
   height: 200px;
 }
 
+/* The browser stops shrinking at 300px */
+body, .main-container, header {
+  min-width: 300px;
+}
+@media (max-width: 300px) {
+  body, .main-container, header {
+    width: 300px;
+    overflow-x: auto; /* Adds a horizontal scrollbar if needed */}
+}
+
 /* Changes styles when the browser width changes */
 @media (max-width: 690px) {
   h1 {
@@ -317,5 +328,11 @@ h2 a.wikipediaLink {
     align-items: center;}
   .album-cover {
     margin-right: 0;
-    margin-bottom: 10px;}
+    margin-bottom: 10px;
+    height: auto;
+    width: 80%;}
+  .FearlessTVimg, .SpeakNowTVimg, .RedTVimg, ._1989TVimg, .TTPDimg {
+    width: 80%;
+    height: 0;
+    padding-bottom: 80%;}
   }
