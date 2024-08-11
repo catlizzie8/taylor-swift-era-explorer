@@ -4,40 +4,71 @@ document.addEventListener('DOMContentLoaded', () => {
   const fyiSection = document.querySelector('.fyi');
   const links = document.querySelectorAll('header a');
   const toggleMusicButton = document.getElementById('toggleMusicButton');
-  const debutAudio = document.getElementById('debut-audio');
-  let wantedAudio = ""
+  const audioClips = {
+    debut: document.getElementById('debutAudio'),
+    fearless: document.getElementById('fearlessAudio'),
+    speaknow: document.getElementById('speakNowAudio'),
+    red: document.getElementById('redAudio'),
+    _1989: document.getElementById('_1989Audio'),
+    rep: document.getElementById('repAudio'),
+    lover: document.getElementById('loverAudio'),
+    folklore: document.getElementById('folkloreAudio'),
+    evermore: document.getElementById('evermoreAudio'),
+    midnights: document.getElementById('midnightsAudio'),
+    ttpd: document.getElementById("ttpdAudio")
+  };
+  let currentAudio = null;
+  let musicWanted = false;
 
   const setHeaderColor = (sectionClass) => {
     const colorVariable = getComputedStyle(document.documentElement).getPropertyValue(`--${sectionClass}`);
     header.style.backgroundColor = colorVariable;
-    wantedAudio = sectionClass+"Audio"
     const linkColor = (sectionClass === 'ttpd' || sectionClass === '_1989' || sectionClass === 'folklore') ? 'black' : 'white';
     header.style.color = linkColor;
     header.style.borderBottom = (sectionClass === 'ttpd') ? '2px solid black' : 'none';
     links.forEach(link => link.style.color = linkColor);
+
+    if (audioClips[sectionClass] !== currentAudio && currentAudio) {
+      currentAudio.pause();
+      currentAudio.currentTime = 0; // Reset audio
+      toggleMusicButton.textContent = 'Turn Music On';
+    }
+
+    if (audioClips[sectionClass]) {
+      currentAudio = audioClips[sectionClass];
+      if (musicWanted) {
+        currentAudio.play();
+        toggleMusicButton.textContent = 'Pause Music';
+      }
+    } else {
+      currentAudio = null;
+    }
   };
+
+  toggleMusicButton.addEventListener('click', () => {
+    if (musicWanted) {
+      musicWanted = false;
+      toggleMusicButton.textContent = 'Unpause Music';
+      if (currentAudio) {
+        currentAudio.pause();
+      }
+    } else {
+      musicWanted = true;
+      toggleMusicButton.textContent = 'Pause Music';
+      if (currentAudio) {
+        currentAudio.play();
+      }
+    }
+  });
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const sectionClass = Array.from(entry.target.classList).find(cls => !['album', 'Info', 'songs', 'text'].includes(cls));
+        let sectionClass = Array.from(entry.target.classList).find(cls => !['album', 'Info', 'songs', 'text'].includes(cls));
         setHeaderColor(sectionClass);
-        if (sectionClass === 'debut') {
-          wantedAudio = debutAudio;
-        }
       }
     });
   }, { threshold: 0.3 });
-
-  toggleMusicButton.addEventListener('click', () => {
-    if (wantedAudio.paused) {
-      wantedAudio.play();
-      toggleMusicButton.textContent = 'Turn Music Off';
-    } else {
-      wantedAudio.pause();
-      toggleMusicButton.textContent = 'Turn Music On';
-    }
-  });
 
   sections.forEach(section => sectionObserver.observe(section));
 
@@ -59,8 +90,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const fyiObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setHeaderColor('debut');
+        setHeaderColor('debut'); // Set to 'debut' color
       }
     });
   }, { threshold: 0.1 });
+
+  fyiObserver.observe(fyiSection);
 });
