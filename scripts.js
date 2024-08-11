@@ -57,9 +57,14 @@ document.addEventListener('DOMContentLoaded', () => {
       toggleMusicButton.textContent = 'Pause Music';
       if (currentAudio) {
         currentAudio.play();
+      } else if (currentAudio === null && document.querySelector('.fyi').getBoundingClientRect().top < window.innerHeight) {
+        // Play debutAudio if in fyi section
+        currentAudio = audioClips['debut'];
+        currentAudio.play();
       }
     }
   });
+
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -91,6 +96,14 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         setHeaderColor('debut'); // Set to 'debut' color
+        if (musicWanted) {
+          if (currentAudio && currentAudio !== audioClips['debut']) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Reset audio
+          }
+          currentAudio = audioClips['debut'];
+          currentAudio.play();
+        }
       }
     });
   }, { threshold: 0.1 });
