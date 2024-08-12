@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   const sections = document.querySelectorAll('.Eras > div');
   const fyiSection = document.querySelector('.fyi');
+  const furtherReading = document.querySelector('.furtherReading');
   const links = document.querySelectorAll('header a');
   const toggleMusicButton = document.getElementById('toggleMusicButton');
   const songTitleElement = document.getElementById('songTitle');
@@ -77,6 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       musicWanted = true;
       toggleMusicButton.textContent = 'Pause Music';
+      console.log("playing");
       if (currentAudio)  { // first starts the audio
         currentAudio.play();
         const sectionClass = Object.keys(audioClips).find(key => audioClips[key] === currentAudio);
@@ -108,7 +110,7 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
       const targetId = link.getAttribute('href').substring(1);
       const targetElement = document.getElementById(targetId);
-      const headerHeight = window.innerWidth < 468 ? 160 : window.innerWidth < 550 ? 180 : 200;
+      const headerHeight = window.innerWidth < 468 ? 160 : window.innerWidth < 550 ? 190 : 210;
       const offsetTop = targetElement.offsetTop - headerHeight;
 
       window.scrollTo({
@@ -130,4 +132,17 @@ document.addEventListener('DOMContentLoaded', () => {
   }, { threshold: 0.1 });
 
   fyiObserver.observe(fyiSection);
+
+  const furtherReadingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        header.style.backgroundColor = 'white';
+        header.style.color = 'black';
+        header.style.borderBottom = '1px solid black';
+        links.forEach(link => link.style.color = 'black');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  furtherReadingObserver.observe(furtherReading);
 });

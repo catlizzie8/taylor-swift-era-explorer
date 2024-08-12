@@ -11,7 +11,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: 180px;
+  height: 190px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@ body {
   margin-right: 7px;
 }
 
-.fyi {
+.fyi, .furtherReading {
   padding-bottom: 5px;
   padding-left: 15px;
   border: 3px solid black;
@@ -65,9 +65,6 @@ body {
 }
 .fyi p {
   margin-top: 0;
-}
-.fyi a {
-  color: black !important;
 }
 
 .Info {
@@ -291,6 +288,17 @@ h2 a.wikipediaLink {
   height: 200px;
 }
 
+li a {
+  color: black;
+}
+.furtherReading h2 {
+  margin-bottom: 0px;
+  margin-top: 15px;
+}
+.furtherReading ul {
+  margin-top: 0px;
+}
+
 /* The browser stops shrinking at 300px */
 body, .main-container, header {
   min-width: 300px;
@@ -325,7 +333,7 @@ body, .main-container, header {
   h2 {
     font-size: 22px;}
   header {
-    height: 160px;}
+    height: 170px;}
   .Info {
     gap: 5px;}
 }
