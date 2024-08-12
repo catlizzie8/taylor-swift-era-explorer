@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.querySelector('header');
   const sections = document.querySelectorAll('.Eras > div');
   const fyiSection = document.querySelector('.fyi');
-  const furtherReading = document.querySelector('.furtherReading');
+  const furtherReadingSection = document.querySelector('.furtherReading');
   const links = document.querySelectorAll('header a');
   const toggleMusicButton = document.getElementById('toggleMusicButton');
   const songTitleElement = document.getElementById('songTitle');
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     folklore: "betty",
     evermore: "champagne problems",
     midnights: "Anti-Hero",
-    ttpd: "Fortnight (feat. Post Malone)",
+    ttpd: "Fortnight (feat. Post Malone)"
   };
   
   let currentAudio = null;
@@ -85,11 +85,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (sectionClass && songTitles[sectionClass]) {
           songTitleElement.textContent = `Now Playing: ${songTitles[sectionClass]}`;
         }
-      } else if (currentAudio === null && document.querySelector('.fyi').getBoundingClientRect().top < window.innerHeight) {
-        // Play debutAudio if in fyi section
-        currentAudio = audioClips['debut'];
-        currentAudio.play();
-        songTitleElement.textContent = `Now Playing: ${songTitles['debut']}`;
       }
     }
   });
@@ -127,6 +122,15 @@ document.addEventListener('DOMContentLoaded', () => {
         header.style.color = 'white';
         header.style.borderBottom = 'none';
         links.forEach(link => link.style.color = 'white');
+        if (musicWanted && currentAudio !== audioClips['debut']) {
+          if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Reset audio
+          }
+          currentAudio = audioClips['debut'];
+          currentAudio.play();
+          songTitleElement.textContent = `Now Playing: ${songTitles['debut']}`;
+        }
       }
     });
   }, { threshold: 0.1 });
@@ -140,9 +144,19 @@ document.addEventListener('DOMContentLoaded', () => {
         header.style.color = 'black';
         header.style.borderBottom = '1px solid black';
         links.forEach(link => link.style.color = 'black');
+
+        if (musicWanted && currentAudio !== audioClips['ttpd']) {
+          if (currentAudio) {
+            currentAudio.pause();
+            currentAudio.currentTime = 0; // Reset audio
+          }
+          currentAudio = audioClips['ttpd'];
+          currentAudio.play();
+          songTitleElement.textContent = `Now Playing: ${songTitles['ttpd']}`;
+        }
       }
     });
   }, { threshold: 0.1 });
 
-  furtherReadingObserver.observe(furtherReading);
+  furtherReadingObserver.observe(furtherReadingSection);
 });

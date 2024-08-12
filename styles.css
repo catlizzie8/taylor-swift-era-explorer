@@ -44,6 +44,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 30px;
 }
 .music button{
   background-color: white;
