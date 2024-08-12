@@ -40,11 +40,16 @@ body {
   padding-top: 195px;
 }
 
-.buttons button{
+.music {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.music button{
   background-color: white;
   border: 2px solid black;
   border-radius: 5px;
-  margin-bottom: 5px;
+  margin-right: 7px;
 }
 
 .fyi {
@@ -332,9 +337,9 @@ body, .main-container, header {
   h3 {
     font-size: 13px;}
   header {
-    height: 130px;}
+    height: 140px;}
   body {
-    padding-top: 165px;}
+    padding-top: 175px;}
   .Info {
     flex-direction: column;
     align-items: center;}

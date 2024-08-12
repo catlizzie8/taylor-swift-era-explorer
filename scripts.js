@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fyiSection = document.querySelector('.fyi');
   const links = document.querySelectorAll('header a');
   const toggleMusicButton = document.getElementById('toggleMusicButton');
+  const songTitleElement = document.getElementById('songTitle')
   const audioClips = {
     debut: document.getElementById('debutAudio'),
     fearless: document.getElementById('fearlessAudio'),
@@ -32,29 +33,52 @@ document.addEventListener('DOMContentLoaded', () => {
       currentAudio.pause();
       currentAudio.currentTime = 0; // Reset audio
       toggleMusicButton.textContent = 'Turn Music On';
+      console.log("resetting audio");
     }
+
+    const songTitles = {
+      debut: "Picture to Burn",
+      fearless: "Love Story (Taylor's Version)",
+      speaknow: "Speak Now (Taylor's Version)",
+      red: "All Too Well (Taylor's Version)",
+      _1989: "Welcome to New York (Taylor's Version)",
+      rep: "... Ready for It?",
+      lover: "Miss Americana & The Heartbreak Prince",
+      folklore: "betty",
+      evermore: "champagne problems",
+      midnights: "Anti-Hero",
+      ttpd: "Fortnight (feat. Post Malone)",
+    };
 
     if (audioClips[sectionClass]) {
       currentAudio = audioClips[sectionClass];
-      if (musicWanted) {
+      if (musicWanted) { // changes the audio while scrolling
         currentAudio.play();
         toggleMusicButton.textContent = 'Pause Music';
+        console.log("changing audio clip");
+        songTitleElement.textContent = songTitles[sectionClass];
       }
     } else {
       currentAudio = null;
+      songTitleElement.textContent = "...";
     }
   };
 
   toggleMusicButton.addEventListener('click', () => {
-    if (musicWanted) {
+    if (musicWanted) { // first starts the audio
       musicWanted = false;
       toggleMusicButton.textContent = 'Unpause Music';
+      songTitleElement.textContent = songTitles[sectionClass];
       if (currentAudio) {
         currentAudio.pause();
+        console.log("pausing");
+        songTitleElement.textContent = "...";
       }
     } else {
       musicWanted = true;
       toggleMusicButton.textContent = 'Pause Music';
+      console.log("playing");
+      songTitleElement.textContent = songTitles[sectionClass];
       if (currentAudio) {
         currentAudio.play();
       } else if (currentAudio === null && document.querySelector('.fyi').getBoundingClientRect().top < window.innerHeight) {
@@ -82,7 +106,7 @@ document.addEventListener('DOMContentLoaded', () => {
       event.preventDefault();
       const targetId = link.getAttribute('href').substring(1);
       const targetElement = document.getElementById(targetId);
-      const headerHeight = window.innerWidth < 468 ? 150 : window.innerWidth < 550 ? 180 : 200;
+      const headerHeight = window.innerWidth < 468 ? 160 : window.innerWidth < 550 ? 180 : 200;
       const offsetTop = targetElement.offsetTop - headerHeight;
 
       window.scrollTo({
