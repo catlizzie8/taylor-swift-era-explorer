@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const fyiSection = document.querySelector('.fyi');
   const links = document.querySelectorAll('header a');
   const toggleMusicButton = document.getElementById('toggleMusicButton');
-  const songTitleElement = document.getElementById('songTitle')
+  const songTitleElement = document.getElementById('songTitle');
   const audioClips = {
     debut: document.getElementById('debutAudio'),
     fearless: document.getElementById('fearlessAudio'),
@@ -16,8 +16,23 @@ document.addEventListener('DOMContentLoaded', () => {
     folklore: document.getElementById('folkloreAudio'),
     evermore: document.getElementById('evermoreAudio'),
     midnights: document.getElementById('midnightsAudio'),
-    ttpd: document.getElementById("ttpdAudio")
+    ttpd: document.getElementById('ttpdAudio')
   };
+  
+  const songTitles = {
+    debut: "Picture to Burn",
+    fearless: "Love Story (Taylor's Version)",
+    speaknow: "Speak Now (Taylor's Version)",
+    red: "All Too Well (Taylor's Version)",
+    _1989: "Welcome to New York (Taylor's Version)",
+    rep: "... Ready for It?",
+    lover: "Miss Americana & The Heartbreak Prince",
+    folklore: "betty",
+    evermore: "champagne problems",
+    midnights: "Anti-Hero",
+    ttpd: "Fortnight (feat. Post Malone)",
+  };
+  
   let currentAudio = null;
   let musicWanted = false;
 
@@ -36,59 +51,46 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log("resetting audio");
     }
 
-    const songTitles = {
-      debut: "Picture to Burn",
-      fearless: "Love Story (Taylor's Version)",
-      speaknow: "Speak Now (Taylor's Version)",
-      red: "All Too Well (Taylor's Version)",
-      _1989: "Welcome to New York (Taylor's Version)",
-      rep: "... Ready for It?",
-      lover: "Miss Americana & The Heartbreak Prince",
-      folklore: "betty",
-      evermore: "champagne problems",
-      midnights: "Anti-Hero",
-      ttpd: "Fortnight (feat. Post Malone)",
-    };
-
     if (audioClips[sectionClass]) {
       currentAudio = audioClips[sectionClass];
       if (musicWanted) { // changes the audio while scrolling
         currentAudio.play();
         toggleMusicButton.textContent = 'Pause Music';
         console.log("changing audio clip");
-        songTitleElement.textContent = songTitles[sectionClass];
+        songTitleElement.textContent = `Now Playing: ${songTitles[sectionClass]}`;
       }
     } else {
       currentAudio = null;
-      songTitleElement.textContent = "...";
+      songTitleElement.textContent = "Now Playing: ...";
     }
   };
 
   toggleMusicButton.addEventListener('click', () => {
-    if (musicWanted) { // first starts the audio
+    if (musicWanted) {
       musicWanted = false;
       toggleMusicButton.textContent = 'Unpause Music';
-      songTitleElement.textContent = songTitles[sectionClass];
       if (currentAudio) {
         currentAudio.pause();
         console.log("pausing");
-        songTitleElement.textContent = "...";
+        songTitleElement.textContent = "Now Playing: ...";
       }
     } else {
       musicWanted = true;
       toggleMusicButton.textContent = 'Pause Music';
-      console.log("playing");
-      songTitleElement.textContent = songTitles[sectionClass];
-      if (currentAudio) {
+      if (currentAudio)  { // first starts the audio
         currentAudio.play();
+        const sectionClass = Object.keys(audioClips).find(key => audioClips[key] === currentAudio);
+        if (sectionClass && songTitles[sectionClass]) {
+          songTitleElement.textContent = `Now Playing: ${songTitles[sectionClass]}`;
+        }
       } else if (currentAudio === null && document.querySelector('.fyi').getBoundingClientRect().top < window.innerHeight) {
         // Play debutAudio if in fyi section
         currentAudio = audioClips['debut'];
         currentAudio.play();
+        songTitleElement.textContent = `Now Playing: ${songTitles['debut']}`;
       }
     }
   });
-
 
   const sectionObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -119,15 +121,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const fyiObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        setHeaderColor('debut'); // Set to 'debut' color
-        if (musicWanted) {
-          if (currentAudio && currentAudio !== audioClips['debut']) {
-            currentAudio.pause();
-            currentAudio.currentTime = 0; // Reset audio
-          }
-          currentAudio = audioClips['debut'];
-          currentAudio.play();
-        }
+        header.style.backgroundColor = 'green';
+        header.style.color = 'white';
+        header.style.borderBottom = 'none';
+        links.forEach(link => link.style.color = 'white');
       }
     });
   }, { threshold: 0.1 });
