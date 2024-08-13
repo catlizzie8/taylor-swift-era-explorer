@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (audioClips[sectionClass] !== currentAudio && currentAudio) {
       currentAudio.pause();
       currentAudio.currentTime = 0; // Reset audio
-      toggleMusicButton.textContent = 'Turn Music On';
+      toggleMusicButton.textContent = 'Play Music';
       console.log("resetting audio");
     }
 
