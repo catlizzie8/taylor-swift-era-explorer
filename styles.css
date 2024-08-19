@@ -38,6 +38,9 @@ h2 {
 
 body {
   padding-top: 195px;
+  width: 950px;
+  margin: 15px 10px 0;
+  /*box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);*/
 }
 
 .music {
@@ -91,7 +94,7 @@ body {
 
 /*Table stuff*/
 table {
-  width: 680px;
+  width: 950px;
   border-collapse: collapse;
   margin-bottom: 20px;
 }
@@ -311,6 +314,12 @@ body, .main-container, header {
 }
 
 /* Changes styles when the browser width changes */
+@media (max-width: 975px) {
+  table {
+    width: 100%;}
+   body {
+    width: 100%;}
+}
 @media (max-width: 690px) {
   h1 {
     font-size: 36px;}
@@ -325,8 +334,6 @@ body, .main-container, header {
   .album-cover {
     height: 200px;
     width: 200px;}
-  table {
-    width: 100%;}
 }
 @media (max-width: 550px) {
   h1 {
